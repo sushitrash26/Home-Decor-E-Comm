@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import HomeStart from './HomeStart'
-import HomeCarousel from './HomeCarousel'
+import {HomeCarousel} from './HomeCarousel'
 import "@/components/Home/styles.css"
 import Particles from "@/components/magicui/particles";
 

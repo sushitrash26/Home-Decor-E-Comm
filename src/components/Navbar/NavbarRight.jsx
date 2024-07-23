@@ -117,9 +117,9 @@ const NavbarRight = () => {
                 {isLoggedIn && <ShoppingCart className="text-black" />}
               </BlurFade>
             </DrawerTrigger>
-            <DrawerContent className="max-h-[70vh]">
-              <DrawerHeader className="overflow-y-auto">
-                <DrawerTitle className="flex justify-center items-center">
+            <DrawerContent className="max-h-[70vh] bg-[#F9D689]">
+              <DrawerHeader className="overflow-y-auto scrollbar-hide ">
+                <DrawerTitle className="flex justify-center items-center ">
                   Your Items
                 </DrawerTitle>
                 {cartItems.length === 0 && (
@@ -131,19 +131,19 @@ const NavbarRight = () => {
                   return (
                     <div
                       key={cartItem._id}
-                      className="w-[100%] sm:w-[100%] h-[15vh] sm:h-[25vh]  border-2 border-black rounded-xl flex "
+                      className="w-[100%] sm:w-[100%] h-[15vh] sm:h-[30vh]  border-2 border-black rounded-xl flex "
                     >
                       <div className="w-[30%] h-[100%] p-2 flex justify-center items-center">
                         <img
                           src={cartItem?.images?.[0]}
                           alt=""
-                          className="w-[100%] h-[100%] sm:w-[50%] sm:h-[80%]"
+                          className="w-[100%] h-[100%] sm:w-[45%] sm:h-[80%]"
                         />
                       </div>
                       <div className="w-[30%] h-[100%] p-2 flex justify-center items-center">
                         <div className="w-[90%] h-[30%] sm:w-[40%] sm:h-[25%] flex rounded-xl overflow-hidden">
                           <Button
-                            className="h-[100%] w-[30%]"
+                            className="h-[100%] w-[30%] bg-[#973131]"
                             onClick={() =>
                               handleUpdateQuantity(
                                 cartItem,
@@ -157,7 +157,7 @@ const NavbarRight = () => {
                             {cartItem.quantity}
                           </div>
                           <Button
-                            className="w-[30%] h-[100%]"
+                            className="w-[30%] h-[100%] bg-[#973131]"
                             onClick={() =>
                               handleUpdateQuantity(
                                 cartItem,
@@ -171,7 +171,7 @@ const NavbarRight = () => {
                       </div>
                       <div className="w-[40%] h-[100%] p-2  flex justify-center items-center">
                         <section
-                          className="w-[80%] h-[95%] sm:w-[50%] sm:space-y-4  p-2 border-2 border-black overflow-hidden rounded-xl
+                          className="w-[80%] h-[95%] sm:w-[50%] sm:space-y-4  p-2  overflow-hidden rounded-xl
                             sm:flex justify-center items-center"
                         >
                           <div className="w-[100%] h-[100%]">
@@ -180,7 +180,7 @@ const NavbarRight = () => {
                             </h1>
                             <h1 className="text-xs sm:text-xl">{`Quantity : ${cartItem.quantity}`}</h1>
                             <Button
-                              className="mt-2 bg-[#6d4ba4] hover:bg-[#593c89] w-[95%] h-[30%] rounded-lg text-xs"
+                              className="mt-2 bg-[#E0A75E] text-[#973131] hover:bg-[#973131] hover:text-[#E0A75E] w-[95%] h-[30%] rounded-lg sm:text-lg text-xs"
                               onClick={() => handleRemoveFromCart(cartItem)}
                             >
                               Remove Item

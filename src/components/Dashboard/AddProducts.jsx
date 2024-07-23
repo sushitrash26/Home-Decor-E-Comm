@@ -58,11 +58,11 @@ const AddProducts = () => {
     }
   return (
     <>
-      <div className="h-[100%] w-[60%] sm:w-[30%]   space-y-5 text-white">
+      <div className="h-[95%] w-[60%] sm:w-[30%]   space-y-5 text-white ">
         <div className="h-[5%] w-[100%] text-black flex justify-center items-center text-2xl">
           <h1>Add Your Product</h1>
         </div>
-        <div className="h-[95%] w-[100%] space-y-2 bg-black rounded-xl p-4">
+        <div className="h-[95%] w-[100%] space-y-2 bg-[#973131] rounded-xl p-4 text-[#F9D689]">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <FormField
@@ -73,7 +73,7 @@ const AddProducts = () => {
                     <FormLabel>Product Name.</FormLabel>
                     <FormControl>
                       <Input
-                        className=""
+                        className="border-[#E0A75E]"
                         placeholder="Enter your product name"
                         {...field}
                       />
@@ -90,7 +90,7 @@ const AddProducts = () => {
                     <FormLabel>Product Price (INR).</FormLabel>
                     <FormControl>
                       <Input
-                        className=""
+                        className="border-[#E0A75E]"
                         placeholder="Price"
                         {...field}
                       />
@@ -107,7 +107,7 @@ const AddProducts = () => {
                     <FormLabel>Product Description.</FormLabel>
                     <FormControl>
                       <Textarea
-                        className=""
+                        className="border-[#E0A75E] scrollbar-hide w-[100%] h-[25vh]"
                         placeholder="Description"
                         {...field}
                       />
@@ -124,7 +124,7 @@ const AddProducts = () => {
                     <FormLabel>Product Stock</FormLabel>
                     <FormControl>
                       <Input
-                        className=""
+                        className="border border-[#E0A75E]"
                         placeholder="Stock"
                         {...field}
                       />
@@ -146,15 +146,15 @@ const AddProducts = () => {
                       type="file"
                       name="images"
                       multiple
-                      className=" text-black bg-white"
+                      className=" text-black bg-white border-none"
                       onChange={(e) => field.onChange(e.target.files)}
                     />
                   </FormControl>
-                  <FormMessage className="">Max Images Should Be 5.</FormMessage>
+                  <FormMessage className="text-[#E0A75E]">Max Images Should Be 5.</FormMessage>
                 </FormItem>
               )}
             />
-            <Button className="mt-2 bg-[#6d4ba4] hover:bg-[#593c89]" type="submit">{isLoading && <>
+            <Button className="mt-2 bg-[#E0A75E] text-[#973131] hover:bg-[#973131] hover:text-[#E0A75E]" type="submit">{isLoading && <>
             <Loader2 className='animate animate-spin'></Loader2>
             Adding Product...
             </>}{!isLoading && "Add Product"}</Button>

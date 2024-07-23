@@ -5,11 +5,8 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
   } from "@/components/ui/card"
-import PaginationBox from './PaginationBox'
+
 import {
     Pagination,
     PaginationContent,
@@ -20,11 +17,10 @@ import {
     PaginationPrevious,
   } from "@/components/ui/pagination"
 import { Button } from './ui/button'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useToast } from './ui/use-toast'
 import { Skeleton } from "@/components/ui/skeleton"
-import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern"
-import { cn } from '@/lib/utils'
+import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card.jsx";
 
 
 
@@ -81,92 +77,9 @@ const Products = () => {
     <>
      
       
-      {<div className="">
+     
         
-       
-        <AnimatedGridPattern
-          numSquares={30}
-          maxOpacity={0.3}
-          duration={1}
-          repeatDelay={1}
-          className={cn(
-            "[mask-image:radial-gradient(200vh_circle_at_center,green,transparent)]",
-            "inset-x-0 inset-y-[0%] sm:h-[100vh] w-[100vw] -skew-y-3 overflow-y-hidden"
-          )}
-        />
-        <AnimatedGridPattern
-          numSquares={30}
-          maxOpacity={0.3}
-          duration={1}
-          repeatDelay={1}
-          className={cn(
-            "[mask-image:radial-gradient(200vh_circle_at_center,green,transparent)]",
-            "inset-x-0 inset-y-[100%] sm:h-[100vh] w-[100vw] -skew-y-3 overflow-y-hidden"
-          )}
-        />
-        <AnimatedGridPattern
-          numSquares={30}
-          maxOpacity={0.3}
-          duration={1}
-          repeatDelay={1}
-          className={cn(
-            "[mask-image:radial-gradient(200vh_circle_at_center,green,transparent)]",
-            "inset-x-0 inset-y-[150%] sm:h-[100vh] w-[100vw] -skew-y-3 overflow-y-hidden"
-          )}
-        />
-        <div className='sm:hidden'>
-        <AnimatedGridPattern
-          numSquares={30}
-          maxOpacity={0.3}
-          duration={1}
-          repeatDelay={1}
-          className={cn(
-            "[mask-image:radial-gradient(200vh_circle_at_center,green,transparent)]",
-            "inset-x-0 inset-y-[100%]  sm:h-[100vh] w-[100vw] -skew-y-3 overflow-y-hidden"
-          )}
-        />
-        <AnimatedGridPattern
-          numSquares={30}
-          maxOpacity={0.3}
-          duration={1}
-          repeatDelay={1}
-          className={cn(
-            "[mask-image:radial-gradient(200vh_circle_at_center,green,transparent)]",
-            "inset-x-0 inset-y-[200%]  sm:h-[100vh] w-[100vw] -skew-y-3 overflow-y-hidden"
-          )}
-        />
-        <AnimatedGridPattern
-          numSquares={30}
-          maxOpacity={0.3}
-          duration={1}
-          repeatDelay={1}
-          className={cn(
-            "[mask-image:radial-gradient(200vh_circle_at_center,green,transparent)]",
-            "inset-x-0 inset-y-[300%]  sm:h-[100vh] w-[100vw] -skew-y-3 overflow-y-hidden"
-          )}
-        />
-        <AnimatedGridPattern
-          numSquares={30}
-          maxOpacity={0.3}
-          duration={1}
-          repeatDelay={1}
-          className={cn(
-            "[mask-image:radial-gradient(200vh_circle_at_center,green,transparent)]",
-            "inset-x-0 inset-y-[400%]  sm:h-[100vh] w-[100vw] -skew-y-3 overflow-y-hidden"
-          )}
-        />
-        <AnimatedGridPattern
-          numSquares={30}
-          maxOpacity={0.3}
-          duration={1}
-          repeatDelay={1}
-          className={cn(
-            "[mask-image:radial-gradient(200vh_circle_at_center,green,transparent)]",
-            "inset-x-0 inset-y-[500%]  sm:h-[100vh] w-[100vw] -skew-y-3 overflow-y-hidden"
-          )}
-        />
-        </div>
-        <div className="main w-[100vw] min-h-[50vh] ">
+        <div className="main w-[100vw] min-h-[50vh] scrollbar-hide bg-[#9a3838]  ">
           <div className="header w-[100%] h-[10vh] sticky flex justify-center items-center"></div>
           {
           <div className="products w-[100%] min-h-[85%] flex items-center justify-center dark">
@@ -183,43 +96,58 @@ const Products = () => {
 
             {!isLoading && (
               <div
-                className="innerproducts w-[80%] min-h-[20vh] sm:grid-cols-4  sm:grid sm:gap-y-20
+                className="innerproducts w-[80%] min-h-[20vh] sm:grid-cols-3  sm:grid sm:gap-y-20
                 justify-center items-center "
               >
                 {products.map((product) => {
                   return (
-                    <div className="overflow-hidden flex justify-center items-center " key={product._id}>
-                      <Card className="shadow-2xl sm:h-[65vh] sm:w-[18vw] sm:ml-3.5 sm:mt-3 sm:mb-0 sm:overflow-hidden sm:p-1 sm:space-y-2 bg-white w-[80%] h-[40vh] my-3 sm:my-0 ">
-                        <div className="sm:h-[80%] sm:w-[100%] sm:flex sm:items-center sm:justify-center">
-                          <CardContent className="">
-                            <img
-                              className="h-[25vh] w-[25vh] p-4"
-                              src={product.images[0]}
-                              alt=""
-                            />
-                          </CardContent>
-                        </div>
-                        <CardDescription className=" sm:h-[20%] sm:overflow-clip ">
-                          <div className='w-[100%] h-[100%] flex justify-center items-center'>
-                          <Link
-                            className="hover:underline font-bold"
-                            to={`/product/${product._id}`}
+                    <CardContainer className="inter-var w-[100%] h-[100%]" key={product._id} >
+                      <CardBody className=" relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]  dark:border-white/[0.2] border-black/[0.1] w-[100%] sm:w-[20rem] h-[100%] rounded-xl p-6 border bg-[#E0A75E] ">
+                        <CardItem
+                          translateZ="50"
+                          className="text-xl font-bold   text-[#973131] uppercase "
+                          
+                        >
+                          {`${product.name}`}
+                        </CardItem>
+                        <CardItem
+                          as="p"
+                          translateZ="60"
+                          className="text-sm max-w-sm mt-2 h-[50%] sm:h-[10vh]  overflow-clip text-[#973131]"
+                        >
+                          {`${product.description}`}
+                        </CardItem>
+                        <CardItem translateZ="100" className="w-full mt-4">
+                          <img
+                            src={product.images[0]}
+                            height={1000}
+                            width={1000}
+                            className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                            alt="thumbnail"
+                          />
+                        </CardItem>
+                        <div className="flex justify-between items-center mt-20">
+                          <CardItem
+                            translateZ={20}
+                            
+                            target="__blank"
+                            className="px-4 py-2 rounded-xl text-xs font-normal text-[#973131] "
                           >
-                            {product.name}
-                          </Link>
-                          </div>
-                          <div className='h-[100%] w-[100%] flex justify-center items-end p-4'>
-                              <Button className="bg-[#6d4ba4] hover:bg-[#593c89]"
-                              onClick={()=>{
-                                navigate(`/product/${product._id}`)
-                              }}
-                              >
-                                View Product
-                              </Button>
-                          </div>
-                        </CardDescription>
-                      </Card>
-                    </div>
+                            Try now →
+                          </CardItem>
+                          <CardItem
+                            translateZ={20}
+                            as="button"
+                            className="px-4 py-2 rounded-xl bg-[#973131] text-[#F5E7B2]  text-xs font-bold"
+                            onClick={() => {
+                              navigate(`/product/${product._id}`);
+                            }}
+                          >
+                            View Product
+                          </CardItem>
+                        </div>
+                      </CardBody>
+                    </CardContainer>
                   );
                 })}
               </div>
@@ -253,7 +181,7 @@ const Products = () => {
             </div>
           </div>
         </div>
-      </div>}
+     
       
     </>
   );

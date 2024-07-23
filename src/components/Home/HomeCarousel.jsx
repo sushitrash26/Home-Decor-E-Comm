@@ -1,102 +1,78 @@
-import React from 'react'
-import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from "react";
-import Particles from '../magicui/particles';
+import React from "react";
+import { motion } from "framer-motion";
+import { LampContainer } from "../ui/lamp";
+import { AnimatedTooltip } from "../ui/animated-tooltip";
+import { FlipWords } from "../ui/flip-words";
 
-const HomeCarousel = () => {
-    const targetRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-      target: targetRef,
-    });
-
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-55%"]);
-  return (
-    <>
-     
-    <div className='sm:w-[100vw] sm:h-[130vh] h-[200vh] w-[200vw] sm:overflow-x-hidden sm:overflow-y-hidden sm:flex justify-center items-start bg-[#b0bef4] '>
-    {/* <div className='h-[130vh] w-[130vw]'>
-      <Particles
-        className=" relative inset-0"
-        quantity={1000}
-        ease={80}
-        color="#00B713"
-        refresh
-        size={1}
-      />
-      </div> */}
-      <section ref={targetRef} className="absolute sm:h-[130vh] h-[200vh] sm:w-[100vw] w-[100vw]  ">
-      <div className="sticky top-0 flex h-screen items-center sm:w-screen w-[100vw] sm:overflow-x-hidden overflow-x-hidden scrollbar-hide">
-        <div className='scrollbar-hide w-[300vw]  sm:w-auto'>
-        <motion.div style={{ x}} className="flex gap-4 sm:overflow-x-clip scrollbar-hide">
-          {cards.map((card) => {
-            return <Card  card={card} key={card.id} />;
-          })}
-        </motion.div>
-        </div>
-      </div>
-    </section>
-   
-    </div>
-    </>
-  )
-}
-const Card = ({ card }) => {
-    return (
-      <div
-        key={card.id}
-        className="group relative sm:h-[50vh] sm:w-[450px] h-[20vh] w-[500px]  bg-neutral-200 "
-      >
-        <div
-          style={{
-            backgroundImage: `url(${card.url})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
-        ></div>
-        
-      </div>
-    );
-  };
-
-
-
-export default HomeCarousel
-
-const cards = [
+export function HomeCarousel() {
+  const people = [
     {
-      url: "/pngegg.png",
-      title: "Title 1",
       id: 1,
+      name: "John Doe",
+      designation: "Software Engineer",
+      image:
+        "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
     },
     {
-      url: "/table.png",
-      title: "Title 2",
       id: 2,
+      name: "Robert Johnson",
+      designation: "Product Manager",
+      image:
+        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
     },
     {
-      url: "/books.png",
-      title: "Title 3",
       id: 3,
+      name: "Jane Smith",
+      designation: "Data Scientist",
+      image:
+        "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
     },
     {
-      url: "/image.png",
-      title: "Title 4",
       id: 4,
+      name: "Emily Davis",
+      designation: "UX Designer",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
     },
     {
-      url: "/lamp.png",
-      title: "Title 5",
       id: 5,
+      name: "Tyler Durden",
+      designation: "Soap Developer",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
     },
     {
-      url: "/lantern.png",
-      title: "Title 6",
       id: 6,
-    },
-    {
-      url: "/lantern_2.png",
-      title: "Title 7",
-      id: 7,
+      name: "Dora",
+      designation: "The Explorer",
+      image:
+        "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3534&q=80",
     },
   ];
+  const words = ["better", "cute", "beautiful", "modern"];
+  return (
+    <>
+    <div className="w-[100vw] h-[100vh] scrollbar-hide">
+    <LampContainer className="h-[50%] w-[100%]">
+      <motion.h1
+        initial={{ opacity: 0.5, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+      >
+        Decorate your home <br /> the right way
+        
+      </motion.h1>
+      <div className=" flex flex-row gap-2 mt-6 items-center justify-center mb-20 w-full">
+           <AnimatedTooltip items={people} className="w-[100%] h-[100%]" />
+        </div>
+        
+      </LampContainer>
+      </div>
+      </>
+  );
+}

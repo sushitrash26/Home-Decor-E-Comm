@@ -19,8 +19,9 @@ const Dashboard = () => {
   },[])
   return (
     <>
-      <div className="w-[100vw] h-[5vh]  flex justify-start items-center">
-        <div className="w-[20%] h-[100%] text-xs border-2 border-white  flex justify-center items-center sm:hidden">
+    <div className='h-[92vh] w-[100%]'>
+      <div className="w-[100vw] h-[5vh]  flex justify-start items-center bg-[#F9D689]">
+        <div className="w-[20%] h-[100%] text-xs border-2 border-white  sm:hidden">
           <DropdownMenu>
             <DropdownMenuTrigger><Menu/></DropdownMenuTrigger>
             <DropdownMenuContent>
@@ -29,23 +30,12 @@ const Dashboard = () => {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        <div className='link sm:flex sm:justify-evenly sm:gap-4 sm:items-center hidden '>
-            <Link to={`/dashboard`}>Add Product</Link>
-            {/* <Link to={`/dashboard/get-orders`}>Get Orders data</Link> */}
-        </div>
       </div>
-      <div className='m-0 p-0 h-[85vh] w-[100vw] flex justify-center items-center'>
-      <AnimatedGridPattern
-          numSquares={30}
-          maxOpacity={0.3}
-          duration={1}
-          repeatDelay={1}
-          className={cn(
-            "[mask-image:radial-gradient(200vh_circle_at_center,green,transparent)]",
-            "inset-x-0 inset-y-[-6%] h-[100vh] w-[100vw] -skew-y-3 overflow-y-hidden"
-          )}
-        />
+      <div className='m-0 p-0 h-[90vh]  w-[100vw] flex justify-center items-center bg-[#F9D689] '>
+      
+      
           <AddProducts></AddProducts>
+      </div>
       </div>
     </>
   );

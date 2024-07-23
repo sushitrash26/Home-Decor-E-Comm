@@ -14,26 +14,16 @@ const HomeStart = () => {
   return (
     <>
         
-      <div className="sm:flex block w-[100vw] h-[80vh] overflow-y-hidden pt-20 sm:pt-0">
-      <AnimatedGridPattern
-        numSquares={30}
-        maxOpacity={0.3}
-        duration={1}
-        repeatDelay={1}
-        className={cn(
-          "[mask-image:radial-gradient(200vh_circle_at_center,green,transparent)]",
-          "inset-x-0 inset-y-[-10%] h-[100vh] w-[100vw] -skew-y-3 overflow-y-hidden",
-        )}
-      />
+      <div className="sm:flex block w-[100vw] h-[80vh] overflow-y-hidden pt-20 sm:pt-0 bg-[#973131]">
         <div className="w-[60%] h-[100%] p-4 sm:p-0">
      
           <div className="w-[100%] h-[40%]  sm:flex justify-center items-end sm:p-8 flex ">
-            <BoxReveal boxColor={"#BBF7D0"} duration={0.5}>
+            <BoxReveal boxColor={"#E0A75E"} duration={0.5}>
               <h1 className="sm:text-8xl text-6xl">Beautify Your House</h1>
             </BoxReveal>
           </div>
           <div className="h-[15%] w-[100%] sm:flex sm:justify-end sm:items-start sm:mt-0 ">
-            <BoxReveal boxColor={"#BBF7D0"} duration={1.0}>
+            <BoxReveal boxColor={"#E0A75E"} duration={1.0}>
               <h1 className="sm:text-7xl text-6xl">With our collections.</h1>
             </BoxReveal>
           </div>

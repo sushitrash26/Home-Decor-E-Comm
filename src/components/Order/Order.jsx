@@ -179,55 +179,55 @@ const Order = () => {
   }
   return (
     <>
-      <div className="w-[100%] min-h-[92vh] bg-[#FAF9F6]">
+      <div className="w-[100%] min-h-[92vh] bg-[#973131]">
         <div className="header w-[100%] sm:h-[10vh] h-[5vh] flex justify-center items-center">
-          <h1>Create and Place your Order</h1>
+          <h1 className='sm:text-xl text-[#F5E7B2] uppercase'>Create and Place your Order</h1>
         </div>
         <div className="content w-[100vw] h-[100%] space-y-4">
           <div className='w-[100%] h-[100%] flex justify-center items-center'>
           <Accordion type="single" collapsible className='space-y-4 w-[90%]'>
             <AccordionItem value="item-1">
-              <AccordionTrigger>Your Order Items</AccordionTrigger>
+              <AccordionTrigger className="text-[#F5E7B2]">Your Order Items</AccordionTrigger>
               <AccordionContent className="text-black">
-                <div className="header h-[5vh] flex  text-black text-xs">
-                  <div className="h-[100%] w-[28%] border-2 border-white">
+                <div className="header h-[5vh] flex  text-black text-xs sm:text-base">
+                  <div className="h-[100%] w-[28%] border flex justify-center items-center text-[#F5E7B2]">
                     Product
                   </div>
-                  <div className="h-[100%] w-[18%] border-2 border-white">
+                  <div className="h-[100%] w-[18%] border flex justify-center items-center text-[#F5E7B2]">
                     Name
                   </div>
-                  <div className="h-[100%] w-[18%] border-2 border-white">
+                  <div className="h-[100%] w-[18%] border flex justify-center items-center text-[#F5E7B2]">
                     Quantity
                   </div>
-                  <div className="h-[100%] w-[18%] border-2 border-white">
+                  <div className="h-[100%] w-[18%] border flex justify-center items-center text-[#F5E7B2]">
                     Price
                   </div>
-                  <div className="h-[100%] w-[18%] border-2 border-white">
+                  <div className="h-[100%] w-[18%] border flex justify-center items-center text-[#F5E7B2] ">
                     Total Price
                   </div>
                 </div>
                 {orderItems && orderItems.map((orderItem) => {
                   return (
                     
-                      <div className="h-[15vh] w-[100%] bg-white flex" key={orderItem._id}>
-                        <div className=" h-[100%] w-[28%] border-2 border-white flex justify-center items-center">
+                      <div className="h-[15vh] w-[100%] bg-[#F5E7B2] text-[#973131] sm:text-base flex" key={orderItem._id} >
+                        <div className=" h-[100%] w-[28%]  flex justify-center items-center">
                           <img
                             src={orderItem.images?.[0]}
                             alt=""
                             className="w-[60%] h-[80%] object-contain"
                           />
                         </div>
-                        <div className=" h-[100%] w-[18%] border-2 border-white flex justify-center items-center">
+                        <div className=" h-[100%] w-[18%]  flex justify-center items-center">
                           <h2>{orderItem.name}</h2>
                         </div>
-                        <div className="h-[100%] w-[18%] border-2 border-white   flex justify-center items-center">
+                        <div className="h-[100%] w-[18%]   flex justify-center items-center">
                           <h2>{orderItem.quantity}</h2>
                         </div>
-                        <div className="h-[100%] w-[18%] border-2 border-white   flex justify-center items-center">
-                          <h2>{orderItem.price}</h2>
+                        <div className="h-[100%] w-[18%]    flex justify-center items-center">
+                          <h2>{`Rs. ${orderItem.price}`}</h2>
                         </div>
-                        <div className="h-[100%] w-[18%] border-2 border-white  flex justify-center items-center">
-                          <h2>{orderItem.price * orderItem.quantity}</h2>
+                        <div className="h-[100%] w-[18%]   flex justify-center items-center">
+                          <h2>{`Rs .${orderItem.price * orderItem.quantity}`}</h2>
                         </div>
                       </div>
                     
@@ -235,9 +235,10 @@ const Order = () => {
                 })}
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger>Add your Address </AccordionTrigger>
-              <AccordionContent>
+            <AccordionItem value="item-2 bg-[#F5E7B2]">
+              
+              <AccordionTrigger className="text-[#F5E7B2] sm:text-base">Add your Address </AccordionTrigger>
+              <AccordionContent className="bg-[#F5E7B2] p-4">
                 {!addressSent &&
                   <>
                   <div className='address border-2 hidden  max-h-[20vh] w-[50%]'>
@@ -267,10 +268,10 @@ const Order = () => {
                       control={form.control}
                       name="street"
                       render={({ field }) => (
-                        <FormItem>
+                        <FormItem className="text-[#973131]">
                           <FormLabel>Street</FormLabel>
                           <FormControl>
-                            <Input className="max-w-[55vw]" placeholder="Street XYZ" {...field} />
+                            <Input className="max-w-[55vw] border border-green-500" placeholder="Street XYZ" {...field} />
                           </FormControl>
                         </FormItem>
                       )}
@@ -280,9 +281,9 @@ const Order = () => {
                       name="city"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>City</FormLabel>
+                          <FormLabel className="text-[#973131]">City</FormLabel>
                           <FormControl>
-                            <Input className="max-w-[30vw]" placeholder="Georgia" {...field} />
+                            <Input className="max-w-[30vw] border border-green-500" placeholder="Georgia" {...field} />
                           </FormControl>
                         </FormItem>
                       )}
@@ -291,10 +292,10 @@ const Order = () => {
                       control={form.control}
                       name="state"
                       render={({ field }) => (
-                        <FormItem>
+                        <FormItem className="text-[#973131]">
                           <FormLabel>State</FormLabel>
                           <FormControl>
-                            <Input className="max-w-[30vw]" placeholder="New Delhi" {...field} />
+                            <Input className="max-w-[30vw] border border-green-500" placeholder="New Delhi" {...field} />
                           </FormControl>
                         </FormItem>
                       )}
@@ -304,29 +305,30 @@ const Order = () => {
                       name="postalCode"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>City</FormLabel>
+                          <FormLabel className="text-[#973131]">City</FormLabel>
                           <FormControl>
-                            <Input className="max-w-[20vw]" placeholder="474001" {...field} />
+                            <Input className="max-w-[20vw] border border-green-500" placeholder="474001" {...field} />
                           </FormControl>
                         </FormItem>
                       )}
                     />
                     <div className="btn mt-2">
-                    <Button type="submit" className="bg-[#6d4ba4] hover:bg-[#593c89] text-black">   {addressLoading &&<> <Loader2 className='animate animate-spin'></Loader2> "Adding.."</>}{!addressLoading && "Add this address"}</Button>
+                    <Button type="submit" className="bg-[#E0A75E] text-[#973131] hover:bg-[#973131] hover:text-[#E0A75E] ">   {addressLoading &&<> <Loader2 className='animate animate-spin'></Loader2> "Adding.."</>}{!addressLoading && "Add this address"}</Button>
                     </div>
                   </form>
                 </Form>}
                 {addressSent && <Button onClick = {handleEditAddress}> Edit Address</Button>}
               </AccordionContent>
+              
             </AccordionItem>
             <AccordionItem value='Item-3'>
-              <AccordionTrigger>
+              <AccordionTrigger className="text-[#F5E7B2]">
                       Your Order Summary
               </AccordionTrigger>
               <AccordionContent>
                       <div className='h-[30vh] w-[100%]  flex justify-center items-center'>
-                        <div className='w-[70%] h-[80%] p-2'>
-                          <h1 className='text-xl'>{`Total payable amount: Rs ${totalPrice}`}</h1>
+                        <div className='w-[70%] h-[80%] p-2 border-2 border-black rounded-2xl bg-[#F5E7B2]'>
+                          <h1 className='text-lg text-nowrap'>{`Total payable amount: Rs ${totalPrice}`}</h1>
                           </div>  
                       </div>  
               </AccordionContent>
@@ -334,7 +336,7 @@ const Order = () => {
           </Accordion>
           </div>
           <div className='w-[100%] h-[100%] flex items-center justify-center '>
-          <Button onClick={()=>order(orderItems)} className="bg-[#6d4ba4] hover:bg-[#593c89] text-black">{isLoading ? <div className='flex justify-center items-center text-lg'><LoaderCircle className='animate animate-spin' /> "Paying"</div> : "Pay now"} </Button>
+          <Button onClick={()=>order(orderItems)} className="bg-[#E0A75E] text-[#973131] hover:bg-[#973131] hover:text-[#E0A75E]">{isLoading ? <div className='flex justify-center items-center text-lg'><LoaderCircle className='animate animate-spin' /> "Paying"</div> : "Pay now"} </Button>
           </div>
         </div>
       </div>

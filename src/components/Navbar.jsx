@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <>
       <div className="overflow-hidden">
-        <div className="navbar h-[9vh] w-[100vw] flex">
+        <div className="navbar h-[9vh] w-[100vw] flex bg-[#E0A75E]">
           <div className="left h-[100%] sm:w-[20%] w-[150%] flex justify-start items-center">
             <div className='sm:hidden pl-2 '>
             <DropdownMenu>
